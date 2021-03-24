@@ -1,0 +1,2 @@
+# Fatality Classifier
+ Python, Pandas and Scikit-Learn packages automate all taxonomy, cleaning, modelling, and training - all across 5 different classification methods. Enhanced with the ADA-boosted equivalents of each one used, this script produces comparative performance statistics based on sensitivity, specificity, and euclidean/manhattan metrics to define the comparative success of each one. To run it yourself, use the .csv file, or populate your own using the format specified in its headings.
