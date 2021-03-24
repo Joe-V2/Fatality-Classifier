@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+# Fatality Classifier
+ Python, Pandas and Scikit-Learn packages automate all taxonomy, cleaning, modelling, and training - all across 3 different classification methods. Enhanced with the ADA-boosted equivalents of each one used, this script produces comparative performance statistics based on sensitivity, specificity, and euclidean/manhattan metrics to define the comparative success of each one. To run it yourself, use the .csv file, or populate your own using the format specified in its headings.  
 
-You can use the [editor on GitHub](https://github.com/Joe-V2/Fatality-Classifier/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This file is configured to work with Jupyter Notebook, or anything that can run a .ipnyb file. Read the markdown cells within it for a step-by-step breakdown of how it works, and consult the resultant CSV files from its output for the results of the experiment.  
+It is designed as an automated process from start to finish, such that not only is it deployable on any data that matches the same basic taxonomy, but also operates free from user supervision (although a certain degree of oversight is greatly encouraged).  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The pipeline is designed to do the following:
 
-### Markdown
+1. Read in data from HeartData.csv, and provide a taxonomic overview.
+2. Remove, and store elsewhere, any exact duplicates to prevent overtraining, as well as enforce taxonomic rules for feature data types to insulate against data error.
+3. Remove elements with outlying features from the cleaned dataset, in both class-specific and global contexts, using boundaries defined against the standard deviations of the means in either, to isolate against outliers influencing regressional outcomes.
+4. Transform nominal and numeric data types to numeric and nominal equivalents respectively, polarising any binary types in the process, and storing the unanimously typed resultant dataframes in one container per type. Also insulates against zero-division error.
+5. Classifies all resultant dataframes against multiple classifiers using several parameter configurations:
+  - Decision trees, for their excellent visualisation capacity for how classifications are made
+  - KMeans, for a comparison of dimensional clustering against multifeatured algorithmical classification
+  - Multi-Layer Perceptron network, for a comparison of novel classification technique against various data types
+  - ADA-Boosted decision tree, for a comparison of the benefits of meta-analysis in algorithmic bounds classification
+  - Bagged KMeans, for a comparison of the benefits of meta-analysis in clustered spatial classification
+  
+This process produces performance metrics for all specified classifiers, rooted in the sensitivity and specificity given by their respective error matrices. These are plotted on a two-feature point graph as a distance away from the perfect, always-right ideal model, by first converting accuracy into two percentage with regards to both positive and negative error, and then using these as the x and y coordinates for a manhattan or euclidean distance away from the perfect origin.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Joe-V2/Fatality-Classifier/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Try it for yourself, make your own data, try and confuse it, whatever you do - just have fun!
